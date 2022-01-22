@@ -23,7 +23,13 @@ class Reference implements Node {
       visitor.visitReference(this);
 }
 
-class RecipeHtmlRender extends HtmlRenderer implements RecipeNodeVisitor {
+/// {@template recipe_html_renderer}
+/// An HTML renderer that can render recipe-flavored markdown.
+/// {@endtemplate}
+class RecipeHtmlRenderer extends HtmlRenderer implements RecipeNodeVisitor {
+  /// {@macro recipe_html_renderer}
+  RecipeHtmlRenderer();
+
   /// Visit a reference node.
   @override
   void visitReference(Reference reference) {
