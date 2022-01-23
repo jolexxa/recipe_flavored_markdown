@@ -1,5 +1,16 @@
 import 'package:markdown/markdown.dart';
 
+/// {@template recipe_node_visitor}
+/// A [NodeVisitor] used to visit nodes created by parsing
+/// a markdown file with the recipe engine extensions.
+abstract class RecipeNodeVisitor implements NodeVisitor {
+  /// Called when a reference node has been reached.
+  void visitReference(Reference reference);
+
+  /// Called when a quantity node has been reached.
+  void visitQuantity(Quantity quantity);
+}
+
 /// {@template reference}
 /// Reference to another recipe, ingredient, or supply.
 /// {@endtemplate}
@@ -29,15 +40,4 @@ class Quantity implements Node {
   @override
   void accept(covariant RecipeNodeVisitor visitor) =>
       visitor.visitQuantity(this);
-}
-
-/// {@template recipe_node_visitor}
-/// A [NodeVisitor] used to visit nodes created by parsing
-/// a markdown file with the recipe engine extensions.
-abstract class RecipeNodeVisitor implements NodeVisitor {
-  /// Called when a reference node has been reached.
-  void visitReference(Reference reference);
-
-  /// Called when a quantity node has been reached.
-  void visitQuantity(Quantity quantity);
 }

@@ -1,5 +1,6 @@
 name: recipe_flavored_markdown
-description: A Very Good Project created by Very Good CLI.
+description: >
+  Recipe-flavored markdown: make recipes easy to create and maintain!
 version: 1.0.0+1
 publish_to: none
 
@@ -10,5 +11,6 @@ dependencies:
   markdown: ^4.0.1
 
 dev_dependencies:
+  mocktail: ^0.2.0
   test: ^1.19.2
   very_good_analysis: ^2.4.0
