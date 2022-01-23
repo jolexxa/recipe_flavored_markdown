@@ -6,11 +6,11 @@ import 'package:test/test.dart';
 void main() {
   group('TextchefEngine', () {
     test('can be instantiated', () {
-      expect(RecipeEngine(markdown: ''), isNotNull);
+      expect(RecipeFlavoredMarkdown(markdown: ''), isNotNull);
     });
 
     test('returns parsed nodes', () {
-      final engine = RecipeEngine(markdown: '1 3/4 cups [sugar]');
+      final engine = RecipeFlavoredMarkdown(markdown: '1 3/4 cups [sugar]');
       final results = engine.parse();
       expect(results, isA<List<Node>>());
     });

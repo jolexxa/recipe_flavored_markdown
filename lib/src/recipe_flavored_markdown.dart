@@ -3,16 +3,20 @@ import 'package:recipe_flavored_markdown/src/recipe_nodes.dart';
 import 'package:recipe_flavored_markdown/src/recipe_syntaxes.dart';
 
 /// {@template recipe_flavored_markdown}
-/// Examine Markdown recipe files.
+/// Recipe-flavored markdown engine.
+///
+/// Parses recipe-flavored markdown and returns abstract syntax tree
+/// nodes, including recipe-flavored nodes which represent cooking
+/// quantities, ingredients, and other references.
 /// {@endtemplate}
-class RecipeEngine {
+class RecipeFlavoredMarkdown {
   /// {@macro recipe_flavored_markdown}
-  const RecipeEngine({required this.markdown});
+  const RecipeFlavoredMarkdown({required this.markdown});
 
   /// Markdown recipe text.
   final String markdown;
 
-  /// Parse the recipe text.
+  /// Parse recipe-flavored markdown and return a list of syntax tree nodes.
   List<Node> parse() {
     final document = Document(
       // Unresolved links are most likely references to ingredients,
