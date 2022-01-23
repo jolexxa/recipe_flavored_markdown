@@ -1,5 +1,5 @@
 import 'package:mocktail/mocktail.dart';
-import 'package:recipe_flavored_markdown/recipe_flavored_markdown.dart';
+import 'package:recipe_flavored_markdown/src/recipe_nodes.dart';
 import 'package:test/test.dart';
 
 class MockVisitor extends Mock implements RecipeNodeVisitor {}
