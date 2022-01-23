@@ -1,5 +1,5 @@
 import 'package:markdown/markdown.dart';
-import 'package:recipe_engine/src/recipe_nodes.dart';
+import 'package:recipe_flavored_markdown/src/recipe_nodes.dart';
 
 /// {@template recipe_html_renderer}
 /// An HTML renderer that can render recipe-flavored markdown.

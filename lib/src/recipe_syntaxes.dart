@@ -1,5 +1,5 @@
 import 'package:markdown/markdown.dart';
-import 'package:recipe_engine/src/recipe_nodes.dart';
+import 'package:recipe_flavored_markdown/src/recipe_nodes.dart';
 
 const String _units = '(?:'
     'tsp(?:s?)|tbsp(?:s?)|oz|cup(?:s?)|pint(?:s?)|quart(?:s?)|'

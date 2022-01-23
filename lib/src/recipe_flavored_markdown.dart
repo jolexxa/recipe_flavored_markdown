@@ -1,12 +1,12 @@
 import 'package:markdown/markdown.dart';
-import 'package:recipe_engine/src/recipe_nodes.dart';
-import 'package:recipe_engine/src/recipe_syntaxes.dart';
+import 'package:recipe_flavored_markdown/src/recipe_nodes.dart';
+import 'package:recipe_flavored_markdown/src/recipe_syntaxes.dart';
 
-/// {@template recipe_engine}
+/// {@template recipe_flavored_markdown}
 /// Examine Markdown recipe files.
 /// {@endtemplate}
 class RecipeEngine {
-  /// {@macro recipe_engine}
+  /// {@macro recipe_flavored_markdown}
   const RecipeEngine({required this.markdown});
 
   /// Markdown recipe text.
