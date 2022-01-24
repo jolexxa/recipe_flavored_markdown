@@ -15,7 +15,7 @@ class RecipeHtmlRenderer extends HtmlRenderer implements RecipeNodeVisitor {
   }
 
   @override
-  void visitQuantity(Quantity quantity) {
-    buffer.write(quantity.textContent);
+  void visitScalar(Scalar scalar) {
+    buffer.write(scalar.textContent);
   }
 }

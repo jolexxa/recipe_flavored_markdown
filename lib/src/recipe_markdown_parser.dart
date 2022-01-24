@@ -23,9 +23,9 @@ class RecipeMarkdownParser {
       // recipes, or cooking supplies.
       linkResolver: (String name, [String? title]) => Reference(name),
       inlineSyntaxes: [
-        QuantityMixedNumberSyntax(),
-        QuantityWholeNumberSyntax(),
-        QuantityFractionalSyntax(),
+        ScalarMixedNumberSyntax(),
+        ScalarWholeNumberSyntax(),
+        ScalarFractionalSyntax(),
       ],
     );
     // Replace windows line endings with unix line endings, and split.

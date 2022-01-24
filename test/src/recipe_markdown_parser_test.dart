@@ -20,7 +20,7 @@ void main() {
       final nodes = (parser.parse()[0] as Element).children!.cast<Element>();
       expect(
         nodes[0].children![0],
-        isA<Quantity>().having(
+        isA<Scalar>().having(
           (q) => q.textContent,
           'textContent',
           '2 tsp',
@@ -28,7 +28,7 @@ void main() {
       );
       expect(
         nodes[1].children![0],
-        isA<Quantity>().having(
+        isA<Scalar>().having(
           (q) => q.textContent,
           'textContent',
           '1 3/4 cup',
@@ -36,7 +36,7 @@ void main() {
       );
       expect(
         nodes[2].children![0],
-        isA<Quantity>().having(
+        isA<Scalar>().having(
           (q) => q.textContent,
           'textContent',
           '2/3 cup',

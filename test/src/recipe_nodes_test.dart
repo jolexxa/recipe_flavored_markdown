@@ -15,14 +15,24 @@ void main() {
       verify(() => visitor.visitReference(reference));
     });
   });
-  group('Quantity', () {
+  group('Scalar', () {
     test('initializes and accepts a recipe node visitor', () {
       const text = '1 3/4 cups';
-      const quantity = Quantity(text);
-      expect(quantity.textContent, text);
+      const scalar = Scalar(
+        textContent: text,
+        unitString: 'cups',
+        wholeNumberString: '1',
+        numeratorString: '3',
+        denominatorString: '4',
+      );
+      expect(scalar.textContent, text);
+      expect(scalar.wholeNumber, 1);
+      expect(scalar.numerator, 3);
+      expect(scalar.denominator, 4);
+      expect(scalar.value, 1.75);
       final visitor = MockVisitor();
-      quantity.accept(visitor);
-      verify(() => visitor.visitQuantity(quantity));
+      scalar.accept(visitor);
+      verify(() => visitor.visitScalar(scalar));
     });
   });
 }

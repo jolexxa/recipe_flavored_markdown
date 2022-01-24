@@ -11,51 +11,60 @@ class MockMatch extends Mock implements Match {}
 void main() {
   registerFallbackValue(Text(''));
 
-  group('QuantityMixedNumberSyntax', () {
+  group('ScalarMixedNumberSyntax', () {
     test('adds node on match', () {
       const text = '1 3/4 cups';
-      final syntax = QuantityMixedNumberSyntax();
+      final syntax = ScalarMixedNumberSyntax();
       final parser = MockInlineParser();
       final match = MockMatch();
       when(() => match.group(0)).thenReturn(text);
+      when(() => match.group(1)).thenReturn('1');
+      when(() => match.group(2)).thenReturn('3');
+      when(() => match.group(3)).thenReturn('4');
+      when(() => match.group(4)).thenReturn('cups');
       syntax.onMatch(parser, match);
-      final quantity = verify(
-        () => parser.addNode(captureAny(that: isA<Quantity>())),
-      ).captured.single as Quantity;
+      final scalar = verify(
+        () => parser.addNode(captureAny(that: isA<Scalar>())),
+      ).captured.single as Scalar;
       verify(() => match.group(0)).called(1);
-      expect(quantity.textContent, text);
+      expect(scalar.textContent, text);
     });
   });
 
-  group('QuantityWholeNumberSyntax', () {
+  group('ScalarWholeNumberSyntax', () {
     test('adds node on match', () {
       const text = '1 cup';
-      final syntax = QuantityWholeNumberSyntax();
+      final syntax = ScalarWholeNumberSyntax();
       final parser = MockInlineParser();
       final match = MockMatch();
       when(() => match.group(0)).thenReturn(text);
+      when(() => match.group(1)).thenReturn('1');
+      when(() => match.group(2)).thenReturn('cup');
       syntax.onMatch(parser, match);
-      final quantity = verify(
-        () => parser.addNode(captureAny(that: isA<Quantity>())),
-      ).captured.single as Quantity;
+      final scalar = verify(
+        () => parser.addNode(captureAny(that: isA<Scalar>())),
+      ).captured.single as Scalar;
       verify(() => match.group(0)).called(1);
-      expect(quantity.textContent, text);
+      expect(scalar.textContent, text);
     });
   });
 
-  group('QuantityFractionalSyntax', () {
+  group('ScalarFractionalSyntax', () {
     test('adds node on match', () {
       const text = '3/4 cup';
-      final syntax = QuantityFractionalSyntax();
+      final syntax = ScalarFractionalSyntax();
       final parser = MockInlineParser();
       final match = MockMatch();
       when(() => match.group(0)).thenReturn(text);
+      when(() => match.group(1)).thenReturn('3');
+      when(() => match.group(2)).thenReturn('4');
+      when(() => match.group(3)).thenReturn('cup');
       syntax.onMatch(parser, match);
-      final quantity = verify(
-        () => parser.addNode(captureAny(that: isA<Quantity>())),
-      ).captured.single as Quantity;
+      final scalar = verify(
+        () => parser.addNode(captureAny(that: isA<Scalar>())),
+      ).captured.single as Scalar;
       verify(() => match.group(0)).called(1);
-      expect(quantity.textContent, text);
+      expect(scalar.textContent, text);
     });
   });
 }

@@ -12,9 +12,9 @@ void main() {
       expect(html, text);
     });
 
-    test('renders Quantity node', () {
+    test('renders Scalar node', () {
       const text = '1 3/4 cups';
-      const nodes = [Quantity(text)];
+      const nodes = [Scalar(textContent: text, unitString: 'cups')];
       final renderer = RecipeHtmlRenderer();
       final html = renderer.render(nodes);
       expect(html, text);

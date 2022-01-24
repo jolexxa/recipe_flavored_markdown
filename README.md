@@ -74,7 +74,7 @@ Don't need as much? Cut the recipe in half and bake for only 15 minutes!
 
 Recipe-flavored markdown builds on Dart's [markdown] package by adding syntax extensions and a link resolver.
 
-Unresolved links are marked as references, allowing developers utilizing this package to determine if the link refers to an ingredient, cooking supply, or even another recipe. Cooking quantities are recognized within the markdown document wherever they occur using syntax extensions, such as `1 3/4 cups`. Developers utilizing this package can walk through the markdown syntax tree nodes looking for `Quantity` and `Reference` nodes. For example, a `Quantity` node that occurs before a `Reference` node on the same line of text almost certainly represents the quantity for a specific ingredient.
+Unresolved links (such as `- 3 tsp [onion powder]`) are marked as references, allowing developers utilizing this package to determine if the link refers to an ingredient, cooking supply, or even another recipe. Cooking scalars (measurements of time or quantity, such as `30 minutes` or `1/2 tbsp`) are recognized within the markdown document wherever they occur using syntax extensions. Developers utilizing this package can walk through the markdown syntax tree nodes looking for `Scalar` and `Reference` nodes. For example, a `Scalar` node that occurs before a `Reference` node on the same line of text almost certainly represents the quantity for a specific ingredient.
 
 There are other plain text recipe formats, such as the markdown [Grocery Recipe Format] and the plain text format used in [Cooklang], but the author feels these do not read as easily. While the aforementioned formats are more specific, recipe-flavored markdown opts for a more open-ended approach, choosing minimal syntax over rigorous definition. Because of the flexibility of recipe-flavored markdown, applications utilizing this package are left with the complexity of determining what the user meant. The author feels this approach is better than forcing the user to be keenly aware of their recipe syntax. 
 
@@ -87,15 +87,16 @@ Recipe-flavored markdown does not insist on a specific syntax for denoting "Ingr
 To parse markdown-flavored recipe text, add the following code to your project:
 
 ```dart
-import 'package:recipe_flavored_markdown/recipe_flavored_markdown.dart';
+const recipe = '1 3/4 cups [sugar]';
 
-final parser = RecipeMarkdownParser(
+const parser = RecipeMarkdownParser(
   markdown: recipe,
 );
+
 final nodes = parser.parse();
 ```
 
-Like the standard markdown package, `nodes` will have the type `List<Node>`. You can then walk through the nodes, examining their children and looking for the `Quantity` and `Reference` nodes that are specific to recipe-flavored markdown. :)   
+Like the standard markdown package, `nodes` will have the type `List<Node>`. You can then walk through the nodes, examining their children and looking for the `Scalar` and `Reference` nodes that are specific to recipe-flavored markdown. :)   
 
 For a complete demonstration of how to parse recipe-flavored markdown strings within Dart, see [recipe_markdown_parser_test.dart](test/src/recipe_markdown_parser_test.dart) 
 
