@@ -66,6 +66,7 @@ Sprinkle remaining cinnamon sugar over butter-brushed dough. Roll dough around f
 6. Beat [powdered sugar], [cream cheese], 1/4 cup softened [butter], and [vanilla extract] together in a bowl until frosting is smooth. Top hot cinnamon rolls with cream cheese frosting.
 
 ## Notes
+
 Don't need as much? Cut the recipe in half and bake for only 15 minutes!
 ```
 
