@@ -9,9 +9,9 @@ import 'package:recipe_flavored_markdown/src/recipe_syntaxes.dart';
 /// nodes, including recipe-flavored nodes which represent cooking
 /// quantities, ingredients, and other references.
 /// {@endtemplate}
-class RecipeFlavoredMarkdownParser {
+class RecipeMarkdownParser {
   /// {@macro recipe_flavored_markdown}
-  const RecipeFlavoredMarkdownParser({required this.markdown});
+  const RecipeMarkdownParser({required this.markdown});
 
   /// Markdown recipe text.
   final String markdown;

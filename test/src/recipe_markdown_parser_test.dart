@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:markdown/markdown.dart';
-import 'package:recipe_flavored_markdown/src/recipe_flavored_markdown_parser.dart';
+import 'package:recipe_flavored_markdown/src/recipe_markdown_parser.dart';
 import 'package:recipe_flavored_markdown/src/recipe_nodes.dart';
 import 'package:test/test.dart';
 
@@ -12,9 +12,9 @@ const recipe = '''
 ''';
 
 void main() {
-  group('RecipeFlavoredMarkdown', () {
+  group('RecipeMarkdownParser', () {
     test('custom syntaxes are ordered correctly for proper parsing', () {
-      final parser = RecipeFlavoredMarkdownParser(
+      final parser = RecipeMarkdownParser(
         markdown: recipe,
       );
       final nodes = (parser.parse()[0] as Element).children!.cast<Element>();
