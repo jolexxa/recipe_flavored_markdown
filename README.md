@@ -69,11 +69,11 @@ Don't need as much? Cut the recipe in half and bake for only 15 minutes!
 
 ## About
 
-Recipe-flavored markdown builds on Dart's [markdown] package by extending the syntax for markdown. When it encounters quantities, written as plain text like `1 3/4 cups`, it instructs the markdown parser to create a `Quantity` node instead of a normal text node, allowing you to walk the abstract syntax tree and immediately recognize quantities.
+Recipe-flavored markdown builds on Dart's [markdown] package by adding syntax extensions and a link resolver.
 
-Recipe-writers can also specify ingredients using unresolved links, like `[tomato paste]` or `[squash]`. These unresolved links are converted to `Reference` nodes which allow you to resolve them to ingredients, cooking supplies, or other recipes within your application.
+Unresolved links are marked as references, allowing developers utilizing this package to determine if the link refers to an ingredient, cooking supply, or even another recipe. Cooking quantities are recognized within the markdown document wherever they occur using syntax extensions, such as `1 3/4 cups`. Developers utilizing this package can walk through the markdown syntax tree nodes looking for `Quantity` and `Reference` nodes. For example, a `Quantity` node that occurs before a `Reference` node on the same line of text almost certainly represents the quantity for a specific ingredient.
 
-There are other plain text recipe formats, such as the markdown [Grocery Recipe Format] and the plain text format used in [Cooklang], but the author feels these do not read as easily.
+There are other plain text recipe formats, such as the markdown [Grocery Recipe Format] and the plain text format used in [Cooklang], but the author feels these do not read as easily. While the aforementioned formats are more specific, recipe-flavored markdown opts for a more open-ended approach, choosing minimal syntax over rigorous definition. Because of the flexibility of recipe-flavored markdown, applications utilizing this package are left with the complexity of determining what the user meant. The author feels this approach is better than forcing the user to be keenly aware of their recipe syntax. 
 
 By allowing cooking quantities to exist within plain text loosely and exploiting the fact that markdown allows links without explicit url's, we can concoct a simpler, more flexible, and (hopefully) more readable plain text recipe format. The added flexibility allows users to write recipes in a way that is readable to them, while still providing enough information for programmatic analysis.
 
