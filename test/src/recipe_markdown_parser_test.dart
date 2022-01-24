@@ -13,7 +13,7 @@ const recipe = '''
 
 void main() {
   group('RecipeMarkdownParser', () {
-    test('custom syntaxes are ordered correctly for proper parsing', () {
+    test('custom syntaxes are setup correctly', () {
       final parser = RecipeMarkdownParser(
         markdown: recipe,
       );
@@ -40,6 +40,37 @@ void main() {
           (q) => q.textContent,
           'textContent',
           '2/3 cup',
+        ),
+      );
+    });
+
+    test('creates references for unknown links', () {
+      final parser = RecipeMarkdownParser(
+        markdown: recipe,
+      );
+      final nodes = (parser.parse()[0] as Element).children!.cast<Element>();
+      expect(
+        nodes[0].children![2],
+        isA<Reference>().having(
+          (r) => r.textContent,
+          'textContent',
+          'vanilla extract',
+        ),
+      );
+      expect(
+        nodes[1].children![2],
+        isA<Reference>().having(
+          (r) => r.textContent,
+          'textContent',
+          'milk',
+        ),
+      );
+      expect(
+        nodes[2].children![2],
+        isA<Reference>().having(
+          (r) => r.textContent,
+          'textContent',
+          'sugar',
         ),
       );
     });
