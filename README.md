@@ -4,7 +4,7 @@
 
 Have you ever wanted a simpler approach to writing and maintaining recipes? Are you tired of fidgeting with apps that make it hard to specify ingredients or instructions for all your tasty, sacred texts? Would you rather take matters into your own hands and write recipes using nothing but a plain-text editor?
 
-**Note:** *This is a passion project that is still in its infancy. Feel free to make suggestion!*
+**Note:** *This is a passion project that is still in its infancy. Feel free to make suggestions!*
 
 Meet recipe-flavored markdown! Using nothing but markdown, you can write your tasty tomes in a loosely-opinionated way that reads almost exactly like your grandmother's (or grandfather's!) recipes. Better yet, this package allows you to parse recipe-flavored markdown documents in Dart and use them however you like! Let's get to cookin'!
 
@@ -80,6 +80,23 @@ There are other plain text recipe formats, such as the markdown [Grocery Recipe 
 By allowing cooking quantities to exist within plain text loosely and exploiting the fact that markdown allows links without explicit url's, we can concoct a simpler, more flexible, and (hopefully) more readable plain text recipe format. The added flexibility allows users to write recipes in a way that is readable to them, while still providing enough information for programmatic analysis.
 
 Recipe-flavored markdown does not insist on a specific syntax for denoting "Ingredients" and "Instructions" sections within recipes, although it is expected the user will likely use some form of heading syntax.
+
+## Usage
+
+To parse markdown-flavored recipe text, add the following code to your project:
+
+```dart
+import 'package:recipe_flavored_markdown/recipe_flavored_markdown.dart';
+
+final parser = RecipeMarkdownParser(
+  markdown: recipe,
+);
+final nodes = parser.parse();
+```
+
+Like the standard markdown package, `nodes` will have the type `List<Node>`. You can then walk through the nodes, examining their children and looking for the `Quantity` and `Reference` nodes that are specific to recipe-flavored markdown. :)   
+
+For a complete demonstration of how to parse recipe-flavored markdown strings within Dart, see [recipe_markdown_parser_test.dart](test/src/recipe_markdown_parser_test.dart) 
 
 ## Credits
 
