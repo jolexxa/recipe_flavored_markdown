@@ -1,8 +1,10 @@
 name: recipe_flavored_markdown
+version: 1.0.0
 description: >
   Recipe-flavored markdown: make recipes easy to create and maintain!
-version: 1.0.0+1
-publish_to: none
+repository: https://github.com/definitelyokay/recipe_flavored_markdown
+issue_tracker: https://github.com/definitelyokay/recipe_flavored_markdown/issues
+homepage: https://github.com/definitelyokay/recipe_flavored_markdown
 
 environment:
   sdk: ">=2.14.0 <3.0.0"
