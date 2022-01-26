@@ -24,11 +24,11 @@ class ScalarMixedNumberSyntax extends InlineSyntax {
   bool onMatch(InlineParser parser, Match match) {
     parser.addNode(
       Scalar(
-        textContent: match.group(0)!,
-        wholeNumberString: match.group(1)!,
-        numeratorString: match.group(2)!,
-        denominatorString: match.group(3)!,
-        unitString: match.group(4)!,
+        textContent: match.group(0) ?? '',
+        wholeNumberString: match.group(1) ?? '',
+        numeratorString: match.group(2) ?? '',
+        denominatorString: match.group(3) ?? '',
+        unitString: match.group(4) ?? '',
       ),
     );
     return true;
@@ -51,9 +51,9 @@ class ScalarWholeNumberSyntax extends InlineSyntax {
   bool onMatch(InlineParser parser, Match match) {
     parser.addNode(
       Scalar(
-        textContent: match.group(0)!,
-        wholeNumberString: match.group(1)!,
-        unitString: match.group(2)!,
+        textContent: match.group(0) ?? '',
+        wholeNumberString: match.group(1) ?? '',
+        unitString: match.group(2) ?? '',
       ),
     );
     return true;
@@ -76,10 +76,10 @@ class ScalarFractionalSyntax extends InlineSyntax {
   bool onMatch(InlineParser parser, Match match) {
     parser.addNode(
       Scalar(
-        textContent: match.group(0)!,
-        numeratorString: match.group(1)!,
-        denominatorString: match.group(2)!,
-        unitString: match.group(3)!,
+        textContent: match.group(0) ?? '',
+        numeratorString: match.group(1) ?? '',
+        denominatorString: match.group(2) ?? '',
+        unitString: match.group(3) ?? '',
       ),
     );
     return true;
